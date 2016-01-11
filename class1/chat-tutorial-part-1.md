@@ -92,7 +92,7 @@ Delete all the code in `chat.html`, `chat.js`, and `chat.css` so that they are a
 
 Let's go ahead and paste in some css code so the app will look good (we'll ignore the css from here on):
 
-* Copy the CSS from [here](https://github.com/girldevelopit/chat-tutorial/blob/master/chat.css), paste it into `chat.css`, and save.
+* Copy the CSS from [here](https://github.com/girldevelopit/chat-tutorial/blob/master/chat/chat.css), paste it into `chat.css`, and save.
 
 ![paste css](../img/paste.png)
 
