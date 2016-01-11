@@ -89,7 +89,7 @@ if (Meteor.isClient) {
 }
 ```
 
-One thing you may notice about the code is that we are able to specify where code will run with `if (Meteor.isClient` and `if (Meteor.isServer)`[^client-server-folders]. That means the the first line, `Messages = new Mongo.Collection("msgs");` runs on both client and server. On the server, it creates a MongoDB collection called `Messages` (referenced as `msgs` internally by MongoDB), and on the client, it makes a similarly named collection with Minimongo. 
+One thing you may notice about the code is that we are able to specify where code will run with `if (Meteor.isClient` and `if (Meteor.isServer)`<sup>[1](#client-server-folders)</sup>. That means the the first line, `Messages = new Mongo.Collection("msgs");` runs on both client and server. On the server, it creates a MongoDB collection called `Messages` (referenced as `msgs` internally by MongoDB), and on the client, it makes a similarly named collection with Minimongo. 
 
 ![if](../img/if.png)
 
@@ -118,7 +118,7 @@ In our HTML, we told the template to iterate over an array of messages using `{{
 ![helper](../img/helper.png)
 
 * `Template.body.helpers` is what we use to define the helper functions on the main body of the app (you can replace `body` with a template name to set up helpers for other templates). 
-* `recentMessages` is a function that just returns a MongoDB query result.[^cursor-vs-array] This time it's on the client, so this is on Minimongo, and it will be sorted in forward chronological order so that messages read from top to bottom. 
+* `recentMessages` is a function that just returns a MongoDB query result.<sup>[2](#cursor-vs-array)</sup> This time it's on the client, so this is on Minimongo, and it will be sorted in forward chronological order so that messages read from top to bottom. 
 
 Notice how Minimongo allows us to continue working with the database with exactly the same API as on the server, allowing code to be shared or moved between client and server with no changes. When people talk about *[isomorphic JavaScript](http://isomorphic.net/)*, this is what they mean, but this is a level deeper, because it's the same API, not just the same language. 
 
@@ -227,7 +227,6 @@ Not bad for a few lines of code! The main thing missing is that messages are ano
 
 We'll cover these in [part three of the tutorial](chat-tutorial-part-3.md).
 
+<a name="client-server-folders">1</a>: You can specify that entire files only load on the client or server by placing them in folders called `client/` or`server/` in your project root.
 
-[^client-server-folders]: You can specify that entire files only load on the client or server by placing them in folders called `client/` or`server/` in your project root.
-
-[^cursor-vs-array]: Note that in this code we return a *cursor*, not an array. To get the array of documents, we could have called the `fetch()` method: `return Messages.find({}, {sort: {createdAt: 1}}).fetch();`. A [cursor](http://docs.meteor.com/#/full/mongo_cursor) is an object that defines a result set that can be accessed via `fetch`,  `map`, or `forEach` (or quantified with `count`). By handing Meteor the cursor instead of the final array, we allow Meteor to make fine-grained updates to our app. Meteor will automatically fetch/update data as needed.
+<a name="cursor-vs-array">2</a>: Note that in this code we return a *cursor*, not an array. To get the array of documents, we could have called the `fetch()` method: `return Messages.find({}, {sort: {createdAt: 1}}).fetch();`. A [cursor](http://docs.meteor.com/#/full/mongo_cursor) is an object that defines a result set that can be accessed via `fetch`,  `map`, or `forEach` (or quantified with `count`). By handing Meteor the cursor instead of the final array, we allow Meteor to make fine-grained updates to our app. Meteor will automatically fetch/update data as needed.
