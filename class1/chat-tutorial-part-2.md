@@ -1,5 +1,7 @@
 ## Meet Meteor Part Two: Core chat functionality
 
+## You are here.
+
 This is part 2 of a 5 part series:
 
 1. [Install Meteor and create your app](chat-tutorial-part-1.md)
@@ -37,7 +39,7 @@ This template will be able to access the `username` and `text` attributes of the
 ## Add the database and client cache
 Meteor comes with a full-stack reactive database driver. MongoDB is installed on the server, and Meteor provides an in-memory client data cache called Minimongo on the browser. Minimongo can be queried with the same API as MongoDB, allowing lightning-fast local access to a subset of the master database. Minimongo's data is kept in sync with the master database in real-time using Meteor's Distributed Data Protocol (DDP) over websockets. On the server, data changes are observed real-time using Meteor's Livequery.
 
-![Full-stack database driver](full-stack-db-driver.png)
+![Full-stack database driver](../img/full-stack-db-driver.png)
 
 Setting all this up would be a huge undertaking if you did it yourself, but Meteor has it covered. Here is all the code you need to set it up. Put the following into chat.js (again `/* comments */` will show us where to add new code as we build up the functionality of the app).
 
@@ -111,7 +113,7 @@ Believe it or not, our app is now able to render text messages. [Go into the bro
 Meteor.call('sendMessage', 'hello from the browser console')
 ```
 
-![Using a method from the browser console](first-message-2x.gif)
+![Using a method from the browser console](../img/first-message-2x.gif)
 
 You will see your message rendered in the app. Go ahead and add another message or two if you like. We didn't write any code to update the browser, so how did this work? When we called the method, it ran on the browser first, doing an insert on Minimongo. The templates we set up to render the messages were automatically wired by Meteor to watch for changes to their data source (the `recentMessages` helper). When Minimongo updated itself, that changed the result of the `recentMessages` helper, which caused the template to re-render. This ability to rerender when data changes is called **reactivity**. Not only does this save you from writing a bunch of code, but it allows you to create your app more *declaratively* – that is, you write the HTML templates as if you were rendering the app the very first time, and Meteor will update it to reflect changes in the data. Meteor is actually very careful about what it updates, changing the minimum number of things necessary. Because it doesn't rerender the entire template, user input fields and DOM changes from things like jQuery plugins will not be overwritten, avoiding a common problem in reactive frameworks.
 
@@ -146,14 +148,15 @@ When it receives a `submit` event on the input (`class="new-message"`), it will 
 
 ##Now for the cool part
 Let's open a second browser and point it to [localhost:3000](http://localhost:3000/). Put it side-by-side with the first browser. Now type a message in one of the browsers. You'll see that it appears in other as well.
-![Anonymous chat is working](anonymous-chat2x.gif)
+
+![Anonymous chat is working](../img/anonymous-chat2x.gif)
 
 With Meteor, we got the "hard part" of the chat app for free! We didn't have to write any code to send chat messages down to the other client. Meteor handles that with Livequery and pub/sub.
 
 
 ##Meteor data flow 
 
-![Method data flow](meteor-data-flow.gif)
+![Method data flow](../img/meteor-data-flow.gif)
 
 Let's review how this app works. When you hit enter to send your message, Meteor does the insert locally on minimongo, which reactively updates the DOM right away based on your templates. This is called "optimistic UI," because it is assuming that the change at the client will be accepted by the server. This makes the app feel very snappy and responsive because we don't have to wait for the server round-trip to display the result. At the same time, it sends the method to the server and runs an insert against the server database. The server database is the "single source of truth." In most cases, there will be no change. But in a chat app, it's possible that someone else will have sent a message just before ours, so the server will insert that above ours. The final version is then pushed down to the client via the subscription. Minimongo will discard its optimistic result and accept the server's result, updating the message window if necessary.
 
@@ -175,7 +178,9 @@ Also take note of what we didn't have to do:
 * write code to monitor the database
 * write code to mutate the DOM
 
-Not bad for a few lines of code! The main thing missing is that messages are anonymous, which severely limits our chat app's usefulness. We need people to be able to log in so we can keep track of who's who. We can also prevent anonymous messages altogether to show the basics of securing the app. We'll cover these in [part three of the tutorial](chat-tutorial-part-3.md).
+Not bad for a few lines of code! The main thing missing is that messages are anonymous, which severely limits our chat app's usefulness. We need people to be able to log in so we can keep track of who's who. We can also prevent anonymous messages altogether to show the basics of securing the app. 
+
+We'll cover these in [part three of the tutorial](chat-tutorial-part-3.md).
 
 
 [^client-server-folders]: You can specify that entire files only load on the client or server by placing them in folders called `client/` or`server/` in your project root.

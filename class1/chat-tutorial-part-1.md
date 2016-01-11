@@ -2,11 +2,15 @@
 
 [Meteor](http://www.meteor.com) has been generating a level of excitement that we haven't seen from web developers in years. 
 
-![](tweet.png)
+![](../img/tweet.png)
 
-![](tweet2.png)
+![](../img/tweet2.png)
 
-In this tutorial, we will see what the excitement is about while exploring the core features and building a functional chat application with very little code. This tutorial will consist of 5 parts:
+In this tutorial, we will see what the excitement is about while exploring the core features and building a functional chat application with very little code. 
+
+## You are here.
+
+This tutorial will consist of 5 parts:
 
 1. Install Meteor and create your app
 2. [Implement basic chat](chat-tutorial-part-2.md)
@@ -88,7 +92,7 @@ Now add the following to chat.html (make sure you keep comments, enclosed in `<!
 
 We now have a skeleton. If everything went well, you should see an empty chat app: 
 
-![Empty chat app](empty-chat-app.png)
+![Empty chat app](../img/empty-chat-app.png)
 
 ## Hot code push
 
@@ -100,6 +104,8 @@ Not only is hot code push great for development, but it also  works in productio
 
 ## Conclusion: Ready to rock
 
-We've installed Meteor and scaffolded our chat app. Notice how little effort this took. Because Meteor has simple installation, easy app creation, an included development server, and hot code push, we are already focusing on our app rather than spending time installing Node.js, MongoDB, a templating system, or other components. In [part two](chat-tutorial-part-2.md), we'll complete the main functionality of the app: rendering messages to all connected clients.
+We've installed Meteor and scaffolded our chat app. Notice how little effort this took. Because Meteor has simple installation, easy app creation, an included development server, and hot code push, we are already focusing on our app rather than spending time installing Node.js, MongoDB, a templating system, or other components. 
+
+In [part two](chat-tutorial-part-2.md), we'll complete the main functionality of the app: rendering messages to all connected clients.
 
 

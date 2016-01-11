@@ -1,5 +1,7 @@
 # Meet Meteor Part Three: User Accounts
  
+## You are here.
+
  This is part 3 of a 5 part series:
 
 1. [Install Meteor and create your app](chat-tutorial-part-1.md)
@@ -40,7 +42,7 @@ We'll need some UI so we can log in to the app. Meteor's accounts system provide
 
 When you hit save, you'll see the widget. You can click on it to expand it. 
 
-![Login widget](loginButtons.png)
+![Login widget](../img/loginButtons.png)
 
 There's our Facebook button in red. If you click on it, you'll see that it does a one-time configuration. Once you enter the required information from your Facebook developer account, anyone with a Facebook account will be able to log in. Adding OAuth in other frameworks can be a week's work, but here we did it in few minutes.
 
@@ -109,4 +111,6 @@ Now that you are logged in, add a message. If everything is correct, you will se
 
 Our app now handles user authentication and controls who can add messages. It is secured against anonymous use, and the interface updates reactively based on the login status of the user. With a few packages, we got integrated accounts behaviors for the server and the client, including Oauth integration, and we even got a visual component, the login widget, for free. This is what a full-stack package system can do. There are other [account UIs available on Atmosphere](https://atmospherejs.com/?q=account%20ui) to give you more control of the look and feel of your app, or you can create your own.
 
-We could stop here, but let's go a little deeper into the UI. It's great that we got something very rudimentary, but how does Meteor handle more subtle UI interactions? The [fourth installment](chat-tutorial-part-4.md) of this series will take you into slightly more advanced UI work. 
+We could stop here, but let's go a little deeper into the UI. It's great that we got something very rudimentary, but how does Meteor handle more subtle UI interactions? 
+
+The [fourth installment](chat-tutorial-part-4.md) of this series will take you into slightly more advanced UI work. 

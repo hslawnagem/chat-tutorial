@@ -1,5 +1,7 @@
 # Meet Meteor Part Four: Better UI
 
+## You are here.
+
 This is part 4 of a 5 part series:
 
 1. [Install Meteor and create your app](chat-tutorial-part-1.md)
@@ -61,6 +63,7 @@ if (Meteor.isClient) {
 ```
 
 ## Trigger auto-scrolling when a message arrives
+
 So now we need to trigger `scrollToBottom()` when new messages come in. Meteor provides the `onRendered()` hook to execute code whenever a template has been placed into the DOM - which will happen whenever a new message is added. Let's use that to call `scrollToBottom()`.  Replace `/*chat window scrolling*/` with:
 
 ```javascript
@@ -203,6 +206,7 @@ The button should go away if we scroll to the bottom by ourselves. This is easil
 
 
 ## Make the button a button
+
 Making the button actually scroll the window is very simple. Just add this event directly under the `scroll event`:
 
 ```javascript
@@ -216,8 +220,10 @@ Making the button actually scroll the window is very simple. Just add this event
 ## Conclusion: This feels like a real chat app
 Try out the app now, again with two users. The button will appear when we are in history and a new message from another user comes in. If we press it, we will be scrolled to the bottom and it will fade out. If we scroll to the bottom ourselves, it will go away on its own. Nice!
 
-![The complete app](complete-app.gif)
+![The complete app](../img/complete-app.gif)
 
 It turned out that chat scrolling behavior is quite rich. We were able to make the app handle users' UX needs quite easily by using the `onRendered()` hook, some jQuery, a reactive variable, and an animation package. This represents some typical tasks you might have to work through to make a great UI.
 
-Although we only have one chat room, this is otherwise a pretty functional chat app – and we still have less than 100 lines of JavaScript. You have experienced most of the major phases of building a Meteor app. All that's left is to deploy it. We'll cover that as well as mobile integration in [the final installment](chat-tutorial-part-5.md) of this tutorial.
+Although we only have one chat room, this is otherwise a pretty functional chat app – and we still have less than 100 lines of JavaScript. You have experienced most of the major phases of building a Meteor app. 
+
+All that's left is to deploy it. We'll cover that as well as mobile integration in [the final installment](chat-tutorial-part-5.md) of this tutorial.

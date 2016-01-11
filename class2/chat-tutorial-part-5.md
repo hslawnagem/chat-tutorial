@@ -1,5 +1,7 @@
 # Meet Meteor Part Five: Deploying and Building for Mobile
  
+## You are here.
+
  This is the last of a 5 part series:
 
 1. [Install Meteor and create your app](chat-tutorial-part-1.md)
@@ -58,7 +60,7 @@ meteor run ios
 meteor run android
 ```
 
-![The app running on the Xcode simulator](ios-simulator-small.png)
+![The app running on the Xcode simulator](../img/ios-simulator-small.png)
 
 Or you can even run it on a connected device (requires an Apple developer's account for iOS):
 
