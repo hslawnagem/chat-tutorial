@@ -12,7 +12,7 @@
 
 ## Adding accounts
 
-We have a working chat mechanism, thanks to Meteor's built-in websocket support, full-stack database driver, and reactive rendering. But chat requires user accounts so we can identify who's talking. Many frameworks would require a full tutorial just on this topic, and if we want to add OAuth login via Facebook, Google, etc, that can be a week's project. Let's see if we can do a little better than that.
+We have a working chat mechanism, thanks to Meteor's built-in websocket support, full-stack database driver, and reactive rendering. But chat requires user accounts so we can identify who's talking. Many frameworks would require a full tutorial just on this topic, and if we want to add [OAuth](https://en.wikipedia.org/wiki/OAuth) login via Facebook, Google, etc, that can be a week's project. Let's see if we can do a little better than that.
 
 To add front- and back-end accounts functionality, go to your `chat/` directory and type the following:
 
@@ -22,6 +22,10 @@ meteor add accounts-password
 meteor add accounts-facebook
 # or you can type meteor add accounts-ui accounts-password accounts-facebook on one line
 ```
+
+![add accounts](../img/addaccts.png)
+
+This will take some time, be patient!
 
 The packages you just added using the Meteor tool provide a complete end-to-end accounts system:
 
@@ -40,17 +44,31 @@ We'll need some UI so we can log in to the app. Meteor's accounts system provide
     </header>
 ```
 
+![oneliner](../img/oneline.png)
+
 When you hit save, you'll see the widget. You can click on it to expand it. 
 
 ![Login widget](../img/loginButtons.png)
 
-There's our Facebook button in red. If you click on it, you'll see that it does a one-time configuration. Once you enter the required information from your Facebook developer account, anyone with a Facebook account will be able to log in. Adding OAuth in other frameworks can be a week's work, but here we did it in few minutes.
+There's our Facebook button in red. If you click on it, you'll see that it does a one-time configuration. Once you enter the required information from your Facebook developer account, anyone with a Facebook account will be able to log in. Note: the button will change to blue once you've configured things. 
+
+![config](../img/config.png)
+
+Take a moment to consider the strange image-captcha the fbook has provided you, and remind yourself that robots recognize strange visual similarities between the unrelated items displayed.
+
+![catcha](../img/catcha.png)
+
+And voilà!
+
+![blue](../img/blue.png)
+
+Adding OAuth in other frameworks can be a week's work, but here we did it in few minutes.
 
 We'll stick with simple password-based authentication for the rest of this tutorial. 
 
 ## Configure accounts
 
-If you look at the login widget, it asks for the user's email address. For us it would be simpler to have them choose a username. Let's add configuration under the line `/*account config*/` in chat-demo.js.
+If you look at the login widget, it asks for the user's email address. For us it would be simpler to have them choose a username. Let's add configuration under the line `/*account config*/` in `chat.js`.
 
 ```javascript
   /*account config*/
@@ -59,7 +77,9 @@ If you look at the login widget, it asks for the user's email address. For us it
   });
 ```
 
-When you hit save with the widget open, you'll see hot code push in action, changing from an email login to a username-based one. Note how the widget stayed open, maintaining the state of the app even though we swapped out the underlying code. Don't log in just yet.
+When you hit save with the widget open, you'll see **hot code push** in action, changing from an email login to a username-based one. Note how the widget stayed open, maintaining the state of the app even though we swapped out the underlying code. Don't log in just yet.
+
+![user](../img/username.png)
 
 ## Secure the app and track the username
 
@@ -70,6 +90,8 @@ Next, let's update our method. Let's add the username to the message, and let's 
       throw new Meteor.Error("not-authorized");
     }
 ```
+
+![auth](../img/add-auth.png)
 
 Then change `username: "anonymous"` to return the username through the accounts system. Your final method code will look like this:
 
@@ -91,7 +113,9 @@ Meteor.methods({
 
 ## Hide the messages form when logged out
 
-You have now secured your method. Try putting in new messages from the app and from the browser console. If the console is open, you will see the "not authorized" error. This is the behavior we want, but there is a UX problem: Showing the message input field to an unauthenticated user is bad because it will silently fail when they try to use it. It would be better to hide the input. Let's do that. Go back to the HTML. The accounts package gives us access to another helper called `{{currentUser}}` which will return their account ID if they are logged in but will be undefined if not. We can use this to our advantage by wrapping the input form in an `#if` helper. Update your `footer` element with the `#if`/`/if` helper pair so it looks like this:
+You have now secured your method. Try putting in new messages from the app and from the browser console. If the console is open, you will see the "not authorized" error. This is the behavior we want, but there is a UX problem: Showing the message input field to an unauthenticated user is bad because it will silently fail when they try to use it. It would be better to hide the input. Let's do that. 
+
+Go back to the HTML. The accounts package gives us access to another helper called `{{currentUser}}` which will return their account ID if they are logged in but will be undefined if not. We can use this to our advantage by wrapping the input form in an `#if` helper. Update your `footer` element with the `#if`/`/if` helper pair so it looks like this:
 
 ```javascript
     <footer>
@@ -105,7 +129,9 @@ You have now secured your method. Try putting in new messages from the app and f
 
 When you hit save (if you are still logged out), the input field should be gone. Now create an account using the widget. The input field reappears reactively. We didn't have to write code to show/hide, add classes, or otherwise manipulate the DOM. We just declaratively told Meteor how to render the view, and Meteor changed the underlying DOM for us.
 
-Now that you are logged in, add a message. If everything is correct, you will see your message logged with the correct username. Logging out should cause the input to disappear as well.
+![ux](../img/ux.png)
+
+Try logging in, and adding a message. If everything is correct, you will see your message logged with the correct username. Logging out should cause the input to disappear as well.
 
 ##Conclusion: This is a real chat app
 
@@ -113,4 +139,4 @@ Our app now handles user authentication and controls who can add messages. It is
 
 We could stop here, but let's go a little deeper into the UI. It's great that we got something very rudimentary, but how does Meteor handle more subtle UI interactions? 
 
-The [fourth installment](chat-tutorial-part-4.md) of this series will take you into slightly more advanced UI work. 
+The [fourth installment](../class2/chat-tutorial-part-4.md) of this series will take you into slightly more advanced UI work. 
