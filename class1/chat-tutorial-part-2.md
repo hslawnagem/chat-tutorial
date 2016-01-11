@@ -26,7 +26,7 @@ Blaze uses [Handlebars](http://handlebarsjs.com/) syntax, which uses curly brace
     </ul>
 ```
 
-![chatmsg](chatmsg.png)
+![chatmsg](../img/chatmsg.png)
 
 Then add the `message` template at the bottom of the file:
 
@@ -39,7 +39,7 @@ Then add the `message` template at the bottom of the file:
 </template>
 ```
 
-![template](templatemsg.png)
+![template](../img/templatemsg.png)
 
 This template will be able to access the `username` and `text` attributes of the database document we use as its context.
 
@@ -122,7 +122,7 @@ In our HTML, we told the template to iterate over an array of messages using `{{
 
 Notice how Minimongo allows us to continue working with the database with exactly the same API as on the server, allowing code to be shared or moved between client and server with no changes. When people talk about *[isomorphic JavaScript](http://isomorphic.net/)*, this is what they mean, but this is a level deeper, because it's the same API, not just the same language. 
 
-![isojs](../img/iso.js)
+![isojs](../img/iso.png)
 
 In most frameworks, that database query would look different on the client (using Angular, Backbone, etc.) and the server (using native MongoDB or an ORM like Mongoose). 
 
@@ -184,7 +184,7 @@ When it receives a `submit` event on the input (`class="new-message"`), it will 
 
 ##Now for the cool part
 
-![hey chrome](heychrome.png)
+![hey chrome](../img/heychrome.png)
 
 Let's open a second browser and point it to [localhost:3000](http://localhost:3000/). Put it side-by-side with the first browser. Now type a message in one of the browsers. You'll see that it appears in other as well.
 
