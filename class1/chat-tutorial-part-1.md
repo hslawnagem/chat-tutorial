@@ -139,6 +139,6 @@ Not only is hot code push great for development, but it also works in production
 
 We've installed Meteor and scaffolded our chat app. Notice how little effort this took. Because Meteor has simple installation, easy app creation, an included development server, and hot code push, we are already focusing on our app rather than spending time installing Node.js, MongoDB, a templating system, or other components. 
 
-In [part two](class1/chat-tutorial-part-2.md), we'll complete the main functionality of the app: rendering messages to all connected clients.
+In [part two](chat-tutorial-part-2.md), we'll complete the main functionality of the app: rendering messages to all connected clients.
 
 
