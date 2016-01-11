@@ -120,7 +120,7 @@ In our HTML, we told the template to iterate over an array of messages using `{{
 * `Template.body.helpers` is what we use to define the helper functions on the main body of the app (you can replace `body` with a template name to set up helpers for other templates). 
 * `recentMessages` is a function that just returns a MongoDB query result.<sup>[2](#cursor-vs-array)</sup> This time it's on the client, so this is on Minimongo, and it will be sorted in forward chronological order so that messages read from top to bottom. 
 
-Notice how Minimongo allows us to continue working with the database with exactly the same API as on the server, allowing code to be shared or moved between client and server with no changes. When people talk about *[isomorphic JavaScript](http://isomorphic.net/)*, this is what they mean, but this is a level deeper, because it's the same API, not just the same language. 
+Notice how Minimongo allows us to continue working with the database with exactly the same API as on the server, allowing code to be shared or moved between client and server with no changes. When people talk about **[isomorphic JavaScript](http://isomorphic.net/)**, this is what they mean, but this is a level deeper, because it's the same API, not just the same language. 
 
 ![isojs](../img/iso.png)
 
@@ -226,6 +226,8 @@ Also take note of what we didn't have to do:
 Not bad for a few lines of code! The main thing missing is that messages are anonymous, which severely limits our chat app's usefulness. We need people to be able to log in so we can keep track of who's who. We can also prevent anonymous messages altogether to show the basics of securing the app. 
 
 We'll cover these in [part three of the tutorial](chat-tutorial-part-3.md).
+
+###Footnotes:
 
 <a name="client-server-folders">1</a>: You can specify that entire files only load on the client or server by placing them in folders called `client/` or`server/` in your project root.
 
