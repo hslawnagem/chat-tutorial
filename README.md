@@ -2,7 +2,7 @@
 
 Slides and materials are hosted and available in this repo, for a 5-part, 2 session class on Meteor.js.
 
-This curriculum is adapted from Robert Dickert's Meteor.JS Tutorials, graciously provided for our Girl Develop It community, taught by Aurelia Moser and  of the official Girl Develop It PHP/MySQL curriculum, developed by Sylvia Richardson for the Raleigh/Durham chapter.The course is meant to be taught in 4 two-hour sections. Each of the slides and practice files are customizable according to the needs of a given class or audience.
+This curriculum is adapted from Robert Dickert's Meteor.JS Tutorials, graciously provided for our Girl Develop It community, taught by [Aurelia Moser](http://www.meetup.com/girldevelopit/members/22281251/) and [Christie Ewen](http://www.meetup.com/girldevelopit/members/13397212/). The course is meant to be taught in two, three-hour sections.
 
 ![chat_screenshot](img/chat-tutorial.png)
 
