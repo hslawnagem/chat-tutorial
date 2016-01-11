@@ -6,7 +6,7 @@
 
 ![](../img/tweet2.png)
 
-It's billed as a full-stack JavaScript App Platform that manages the data flow between your cloud and client applications and UI state/rendering. It has its own UI framework called [Blaze](https://www.meteor.com/blaze), which is comparable to [Angular](https://www.meteor.com/tutorials/angular/creating-an-app) and React (which you can think of as the "views" in MVC, and are also supported by Meteor).
+It's billed as a full-stack JavaScript App Platform that manages the data flow between your cloud and client applications and UI state/rendering. It has its own UI framework called [Blaze](https://www.meteor.com/blaze), which is comparable to [Angular](https://www.meteor.com/tutorials/angular/creating-an-app) and [React](https://facebook.github.io/react/) (which you can think of as the "views" in MVC, and are also supported by Meteor).
 
 ![starting with meteor](../img/startup.png)
 
@@ -92,7 +92,7 @@ Delete all the code in `chat.html`, `chat.js`, and `chat.css` so that they are a
 
 Let's go ahead and paste in some css code so the app will look good (we'll ignore the css from here on):
 
-* Copy the CSS from [here](https://github.com/girldevelopit/chat-tutorial/blob/master/chat/chat.css), paste it into `chat.css`, and save.
+* Copy the CSS from [here](https://github.com/girldevelopit/chat-tutorial/blob/master/chat/chat-1.css), paste it into `chat.css`, and save.
 
 ![paste css](../img/paste.png)
 
