@@ -54,9 +54,13 @@ There's our Facebook button in red. If you click on it, you'll see that it does 
 
 ![config](../img/config.png)
 
+![setup](../img/setup.png)
+
 Take a moment to consider the strange image-captcha the fbook has provided you, and remind yourself that robots recognize strange visual similarities between the unrelated items displayed.
 
 ![catcha](../img/catcha.png)
+
+![local](../img/local.png)
 
 And voilà!
 
@@ -132,6 +136,8 @@ When you hit save (if you are still logged out), the input field should be gone.
 ![ux](../img/ux.png)
 
 Try logging in, and adding a message. If everything is correct, you will see your message logged with the correct username. Logging out should cause the input to disappear as well.
+
+![login](../img/login.png)
 
 ##Conclusion: This is a real chat app
 

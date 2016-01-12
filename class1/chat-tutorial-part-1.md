@@ -2,9 +2,9 @@
 
 [Meteor](http://www.meteor.com) has been generating a level of excitement in the past few years. 
 
-![](../img/tweet.png)
+![tweet1](../img/tweet.png)
 
-![](../img/tweet2.png)
+![tweet2](../img/tweet2.png)
 
 It's billed as a full-stack JavaScript App Platform that manages the data flow between your cloud and client applications and UI state/rendering. It has its own UI framework called [Blaze](https://www.meteor.com/blaze), which is comparable to [Angular](https://www.meteor.com/tutorials/angular/creating-an-app) and [React](https://facebook.github.io/react/) (which you can think of as the "views" in MVC, and are also supported by Meteor).
 
