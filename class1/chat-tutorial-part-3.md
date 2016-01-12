@@ -60,6 +60,8 @@ Take a moment to consider the strange image-captcha the fbook has provided you, 
 
 ![catcha](../img/catcha.png)
 
+Include `http://localhost:3000` as your URL. 
+
 ![local](../img/local.png)
 
 And voilà!
